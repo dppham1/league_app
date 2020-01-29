@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>champion</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+  <!-- Popper.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ url_for("static", filename="css/champions.css") }}">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="{{ url_for("home") }}">league_app Logo</a>
+
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link change_text" href="{{ url_for("champions") }}">Champion Compendium</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0" action="/summoner", method="POST">
+        <input class="form-control mr-sm-2 change_text" type="search" name="summoner" placeholder="Search Summoner" aria-label="Search Summoner">
+        <button class="btn btn-outline-success my-2 my-sm-0 change_text" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <h2>{{ champion_name }} {{ champion_title }}</h2>
+
+  <img src="{{ champion_image }}">
+
+  <p><b>Champion Lore</b>: {{ champion_lore }}</p>
+
+  <p><b>Playing as {{ champion_name }}</b>: {{champion_ally_tips}}</p>
+
+  <p><b>Playing against {{ champion_name }}</b>: {{ champion_enemy_tips }}</p>
+
+  <p><b>Roles</b>: {{ champion_tags }}</p>
+
+  <p><b>Partype</b>: {{ champion_partype }}</p>
+
+  <h3>Stats</h3>
+
+  <p><b>Base Stats</b>: {{champion_base_stats}}</p>
+
+  <h3>Passive</h3>
+
+  <p><b>Passive</b>: {{ champion_passive_name }} </p>
+
+  <p><b>Passive Description</b>: {{ champion_passive_description }}</p>
+
+  <img src="{{ champion_passive_image_url }}">
+
+  <br><br>
+
+  <h3>Abilities</h3>
+
+  <p>Q: {{ champion_q_name }}</p>
+  <img src="{{ champion_q_image }}">
+  <p>Q DESCRIPTION: {{ champion_q_description }}</p>
+  <p>Q Tooltip: {{ champion_q_tooltip }}</p>
+  <p>Q Range: {{ champion_q_range }}</p>
+  <p>Q cooldown: {{ champion_q_cooldown }}</p>
+  <p>Q cost: {{ champion_q_cost }}</p>
+
+  <br><br>
+
+  <p>W: {{ champion_w_name }}</p>
+  <img src="{{ champion_w_image }}">
+  <p>W DESCRIPTION: {{ champion_w_description }}</p>
+  <p>W Tooltip: {{ champion_w_tooltip }}</p>
+  <p>W Range: {{ champion_w_range }}</p>
+  <p>W cooldown: {{ champion_w_cooldown }}</p>
+  <p>W cost: {{ champion_w_cost }}</p>
+
+  <br><br>
+  <p>E: {{ champion_e_name }}</p>
+  <img src="{{ champion_e_image }}">
+  <p>E DESCRIPTION: {{ champion_e_description }}</p>
+  <p>E Tooltip: {{ champion_e_tooltip }}</p>
+  <p>E Range: {{ champion_e_range }}</p>
+  <p>E cooldown: {{ champion_e_cooldown }}</p>
+  <p>E cost: {{ champion_e_cost }}</p>
+
+  <br><br>
+  <p>R: {{ champion_r_name }}</p>
+  <img src="{{ champion_r_image }}">
+  <p>R DESCRIPTION: {{ champion_r_description }}</p>
+  <p>R Tooltip: {{ champion_r_tooltip }}</p>
+  <p>R Range: {{ champion_r_range }}</p>
+  <p>R cooldown: {{ champion_r_cooldown }}</p>
+  <p>R cost: {{ champion_r_cost }}</p>
+
+</body>
+
+</html>
